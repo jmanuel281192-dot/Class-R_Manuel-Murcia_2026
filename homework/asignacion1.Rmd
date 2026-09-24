@@ -1,0 +1,122 @@
+---
+title: "R Class 2026"
+author: "Estudiante: Manuel Murcia Ramírez"
+date: "2026-09-18"
+output: html_document
+---
+
+<style>
+html, body {
+  background: #dff3ec !important;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  background: #ffffff !important;
+  padding: 50px;
+  margin: 40px auto;
+  border-radius: 15px;
+  max-width: 900px;
+}
+
+h1, h2, h3 {
+  color: #246b5b;
+}
+</style>
+
+<center>
+<img src="Jmm.jpg" width="170" height="220"/>
+
+# Hola, soy Manuel Murcia
+
+### Estudiante de la UPR Mayagüez
+
+#### Maestría en Biología
+
+</center>
+
+<p style="margin-top: 30px; margin-bottom: 20px;">
+Aquí se muestran mis ejercicios en el aprendizaje de R. <strong>Asignación 1:</strong>
+</p>
+
+## 1: Asignar valores
+
+Crea un objeto llamado altura con el valor 175 e imprímelo.
+
+```{r}
+altura <- 175
+altura
+```
+## 2: Matemática simple
+
+Calcula el resultado de 25*4-10
+
+```{r}
+25 * 4 - 10
+```
+
+## 3: Uso de funciones
+
+Usa la función sqrt() para calcular la raíz cuadrada de 81.
+
+```{r}
+sqrt(81)
+```
+## 4: Objetos de caracteres
+
+Asigna la frase “¡R es divertido!” a un objeto llamado mensaje. Imprímela.
+
+```{r}
+mensaje <- "¡R es divertido!"
+mensaje
+```
+## 5: Manipulación de objetos
+
+Crea dos objetos, a <- 10 y b <- 5. Calcula su suma y guárdala en c.
+
+```{r}
+a <- 10
+b <- 5
+c <- a + b
+c
+```
+## 6: Comparación lógica
+
+Comprueba si 15 es mayor que 20.
+
+```{r}
+15 > 20
+```
+## 7: Verificación de clases
+
+Verifica la clase del objeto "Hello World".
+
+```{r}
+class("Hello World")
+```
+
+## 8: Opciones de fragmentos de código
+
+Ejecuta el siguiente fragmento de código y modifica sus opciones para suprimir la advertencia sin cambiar el código.
+
+```{r, warning=FALSE}
+log(-1)
+```
+## 9: Opciones de fragmentos de código
+
+Ejecuta el siguiente fragmento de código y modifica sus opciones para suprimir los mensajes sin cambiar el código.
+
+```{r, message=FALSE}
+library(dplyr)
+```
+## 10: Creando y analizando un vector
+
+Crea un vector numérico llamado calificaciones que contenga los valores 80, 90, 75, 95 y 85. Luego, utiliza la función mean() para calcular el promedio y guarda el resultado en un objeto llamado promedio. Muestra el resultado en pantalla.
+
+```{r}
+calificaciones <- c(80, 90, 75, 95, 85)
+promedio <- mean(calificaciones)
+promedio
