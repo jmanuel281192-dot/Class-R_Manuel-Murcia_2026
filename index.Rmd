@@ -21,6 +21,8 @@ output:
 ### Tutoriales
 [Asignacion 1](homework/asignacion1.html)
 
+[Asignacion 2](homework/asignacion2.html)
+
 
 
 

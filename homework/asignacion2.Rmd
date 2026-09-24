@@ -1,0 +1,6 @@
+---
+title: "asignacion2"
+author: "José Manuel Murcia"
+date: "2026-09-24"
+output: html_document
+---
