@@ -30,7 +30,6 @@ h1, h2, h3 {
 <center>
 <img src="Jmm.jpg" width="170" height="220"/>
 
-# Hola, soy Manuel Murcia
 
 ### Estudiante de la UPR Mayagüez
 
