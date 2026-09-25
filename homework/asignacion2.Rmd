@@ -41,3 +41,9 @@ h1, h2, h3 {
 <p style="margin-top: 30px; margin-bottom: 20px;">
 Aquí se muestran mis ejercicios en el aprendizaje de R. <strong>Asignación 2:</strong>
 </p>
+
+
+  Hora de inicio actividad: 8:30 pm (jueves 24 de septiembre)
+
+library(dplyr)
+
