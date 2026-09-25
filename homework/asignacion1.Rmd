@@ -1,5 +1,5 @@
 ---
-title: "R Class 2026"
+title: "Asignación 1"
 author: "Estudiante: Manuel Murcia Ramírez"
 date: "2026-09-18"
 output: html_document

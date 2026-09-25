@@ -1,6 +1,43 @@
 ---
-title: "asignacion2"
+title: "Asignación 2"
 author: "José Manuel Murcia"
 date: "2026-09-24"
 output: html_document
+
 ---
+<style>
+html, body {
+  background: #dff3ec !important;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  background: #ffffff !important;
+  padding: 50px;
+  margin: 40px auto;
+  border-radius: 15px;
+  max-width: 900px;
+}
+
+h1, h2, h3 {
+  color: #246b5b;
+}
+</style>
+
+<center>
+<img src="Jmm.jpg" width="170" height="220"/>
+
+# Hola, soy Manuel Murcia
+
+### Estudiante de la UPR Mayagüez
+
+#### Maestría en Biología
+
+</center>
+
+<p style="margin-top: 30px; margin-bottom: 20px;">
+Aquí se muestran mis ejercicios en el aprendizaje de R. <strong>Asignación 2:</strong>
+</p>
