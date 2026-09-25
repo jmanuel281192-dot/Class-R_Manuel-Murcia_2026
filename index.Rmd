@@ -1,5 +1,5 @@
 ---
-title: "Prueba R Markdown"
+title: "Actividades en el aprendizaje de R"
 author: "Manuel Murcia"
 date: "2026-09-01"
 output:
@@ -15,16 +15,19 @@ output:
 ### Estudiante de la UPR Mayagüez
 #### Maestría en Biología
 </center>
-#### Me he desempeñado como docente de secundaria durante más de 13 años. Soy Licenciado en Ciencias Naturales y Educación Ambiental y Magíster en Educación Inclusiva e intercultural. 
+#### Aquí se expone una serie de actividades en clase y homeworks sobre R y Rstudio. 
 
 
-### Tutoriales
-[Asignacion 1](homework/asignacion1.html)
+# Tutoriales
+[Actividad 1](homework/asignacion1.html)
 
-[Asignacion 2](homework/asignacion2.html)
+[Actividad 2](homework/asignacion2.html)
 
 
 
+# Otros ejercicios en clase
+
+## Creando una tabla de datos
 
 | Heading 1 | Heading 2 | Heading 3 |
 | --------- | --------- | --------- |
@@ -32,7 +35,7 @@ output:
 | Row 2, column 1 | Row 2, column 2 | Row 2, column 3|
 | Row 3, column 1 | Row 3, column 2 | Row 3, column 3|
 
- 
+## Creando gráficas
 
 ```{r echo=F, warning=F, message=F}
 library(ggplot2)
