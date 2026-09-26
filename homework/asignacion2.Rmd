@@ -3,6 +3,7 @@ title: "Asignación 2"
 author: "José Manuel Murcia"
 date: "2026-09-24"
 output: html_document
+---
 
 ---
 <style>
@@ -43,7 +44,81 @@ Aquí se muestran mis ejercicios en el aprendizaje de R. <strong>Asignación 2:<
 </p>
 
 
-  Hora de inicio actividad: 8:30 pm (jueves 24 de septiembre)
+  Hora de inicio actividad: 8:30 pm (jueves 24 de septiembre) -
+  Hora de finalización: 9:00 pm (viernes 25 de septiembre)
 
+
+
+```{r, message=FALSE}
 library(dplyr)
+library(gapminder)
 
+data(gapminder)
+head(gapminder)
+```
+
+
+## Q1. ¿Qué clase es el dataset gapminder?
+
+```{r}
+class(gapminder)
+```
+
+## Q2. Filtrar una sección de gapminder con esperanza de vida menor a 29
+
+```{r}
+filter(gapminder, lifeExp < 29)
+```
+
+## Q3. Filtrar el dataset para Rwanda y años mayores a 1979
+
+```{r}
+filter(gapminder, country == "Rwanda", year > 1979)
+```
+
+## Q4. Crear un nuevo dataset excluyendo la columna gdpPercap
+
+```{r}
+gapminder_sin_gdp <- select(gapminder, -gdpPercap)
+gapminder_sin_gdp
+
+```
+
+## Q5. Ordenar el dataset en orden ascendente según lifeExp
+
+```{r}
+arrange(gapminder, lifeExp)
+```
+
+## Q6. Ordenar el dataset en orden descendente según lifeExp
+
+```{r}
+arrange(gapminder, desc(lifeExp))
+```
+
+## Q7. Crear un nuevo dataset con las columnas year y lifeExp
+
+```{r}
+gapminder_year_lifeExp <- select(gapminder, year, lifeExp)
+gapminder_year_lifeExp
+```
+
+## Q8. Filtrar el dataset para Camboya y mostrar únicamente year y lifeExp
+
+```{r}
+filter(gapminder, country == "Cambodia") %>%
+  select(year, lifeExp)
+```
+
+## Q9. Seleccionar únicamente los países que están en África
+
+```{r}
+filter(gapminder, continent == "Africa")
+```
+
+## Q10. Crear una nueva columna llamada lifeExp_months
+
+```{r}
+gapminder <- mutate(gapminder, lifeExp_months = lifeExp * 12)
+gapminder
+```
