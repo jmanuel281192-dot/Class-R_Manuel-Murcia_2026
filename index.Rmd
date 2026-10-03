@@ -23,6 +23,8 @@ output:
 
 [Actividad 2](homework/asignacion2.html)
 
+[Actividad 3](homework/asignacion3.html)
+
 
 
 # Otros ejercicios en clase

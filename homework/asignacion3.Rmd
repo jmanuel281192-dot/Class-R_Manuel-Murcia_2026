@@ -1,0 +1,100 @@
+---
+title: "Asignación 3"
+author: "José Manuel Murcia"
+date: "2026-10-02"
+output: html_document
+---
+
+<style>
+html, body {
+  background: #dff3ec !important;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  background: #ffffff !important;
+  padding: 50px;
+  margin: 40px auto;
+  border-radius: 15px;
+  max-width: 900px;
+}
+
+h1, h2, h3 {
+  color: #246b5b;
+}
+</style>
+
+<center>
+<img src="Jmm.jpg" width="170" height="220"/>
+
+# Hola, soy Manuel Murcia
+
+### Estudiante de la UPR Mayagüez
+
+#### Maestría en Biología
+
+### Hora de Inicio: Viernes 2 de Octubre, 7:00 pm, finalización: 
+
+</center>
+
+<p style="margin-top: 30px; margin-bottom: 20px;">
+Aquí se muestran mis ejercicios en el aprendizaje de R. <strong>Asignación 3:</strong>
+</p>
+
+```{r setup, include=TRUE, comment=NA}
+library(ggplot2)
+data("trees")
+head(trees, 6)
+
+```
+### Q1. Cree un histograma que muestre la distribución de Girth.
+
+```{r, comment=NA, echo=FALSE, message=FALSE, warning=FALSE}
+head(trees, 6)
+
+ggplot(trees, aes(x = Girth)) +
+  geom_histogram()
+```
+
+
+### Q2. Cree un histograma que muestre la distribución de Volume.
+
+```{r, comment=NA, echo=FALSE, message=FALSE, warning=FALSE}
+head(trees, 6)
+
+ggplot(trees, aes(x = Volume)) +
+  geom_histogram()
+```
+
+### Q3. Cree un gráfico de dispersión que muestre la relación entre Girth y Volume.
+
+```{r, comment=NA, echo=FALSE}
+head(trees, 6)
+
+ggplot(trees, aes(x = Girth, y = Volume)) +
+  geom_point()
+```
+
+### Q4. Utilice la prueba de Shapiro–Wilk para evaluar si Volume tiene una distribución normal. Reporte el valor de p e indique si los datos tienen una distribución normal.
+
+```{r, comment=NA, echo=FALSE}
+head(trees, 6)
+
+shapiro.test(trees$Volume)
+```
+
+El valor de p es **0.003579**. Como p < 0.05, los datos de Volume no presentan una distribución normal.
+
+### Q5. Repita la prueba de Shapiro–Wilk para Girth. Reporte el valor de p e indique si los datos tienen una distribución normal.
+
+```{r, comment=NA, echo=FALSE}
+head(trees, 6)
+
+shapiro.test(trees$Girth)
+```
+
+El valor de p es **0.08893**. Como p > 0.05, los datos de Girth presentan una distribución compatible con la normalidad.
+
