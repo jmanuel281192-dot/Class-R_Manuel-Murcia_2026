@@ -1,0 +1,106 @@
+---
+title: "Midterm Exam"
+author: "José Manuel Murcia"
+date: "2026-10-22"
+output: html_document
+---
+
+<style>
+html, body {
+  background: #dff3ec !important;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  background: #ffffff !important;
+  padding: 50px;
+  margin: 40px auto;
+  border-radius: 15px;
+  max-width: 900px;
+}
+
+h1, h2, h3 {
+  color: #246b5b;
+}
+</style>
+
+<center>
+<img src="Jmm.jpg" width="170" height="220"/>
+
+# Hola, soy Manuel Murcia
+
+### Estudiante de la UPR Mayagüez
+
+#### Maestría en Biología
+
+### Examen 1: Jueves 22 de Octubre, 3:00 pm, finalización: 
+
+</center>
+
+<p style="margin-top: 30px; margin-bottom: 20px;">
+Aquí se muestran mis ejercicios en el aprendizaje de R. <strong>Examen1:</strong>
+</p>
+
+
+```{r setup, include=TRUE, comment=NA}
+# install.packages("tidyverse")
+# installed.packages("dplyr")
+# install.packages("aod")
+
+library(tidyverse)
+library(dplyr)
+library(aod)
+
+data("msleep")
+data("storms")
+data("lizards")
+
+head(msleep, 6)
+
+head(storms, 6)
+
+head(lizards, 6)
+
+```
+
+#### Q1. Usa filter() para seleccionar del dataset msleep solo los animales que están despiertos al menos 12 horas al día.
+
+```{r}
+msleep %>%
+  filter(awake >= 12)
+```
+
+#### Q2. Usa mutate() para crear una nueva columna llamada percent_day_awake que muestre el porcentaje del día que cada especie permanece despierta. Usa select() con everything() al final para comprobar que tus cálculos son correctos.
+
+```{r}
+  msleep <-  msleep %>% 
+  mutate(percent_day_awake = (awake / 24) * 100) %>% 
+  select(percent_day_awake, awake, everything())
+msleep
+
+```
+
+#### Q3. Agrupa los datos por año y calcula el número de tormentas que ocurrieron cada año. Sugerencia: group_by(col) agrupa las filas por tiempo, y summarise(num_storms = n()) cuenta cuántas filas (tormentas) hay por año.
+
+```{r}
+storms %>%
+  group_by(year) %>%
+  summarise(
+    num_storms = n()
+  )
+```
+
+#### Q4 Filtra el dataset para quedarte solo con tormentas que tengan velocidad de viento mayor a 50 nudos, y luego ordénalas de mayor a menor velocidad de viento. Sugerencia: Usa filter(col > 50) para seleccionar las tormentas fuertes, y arrange(desc(col)) para ordenar los resultados de mayor a menor.
+
+```{r}
+storms %>%
+  filter(wind > 50) %>%
+  arrange(desc(wind))
+```
+
+#### Q5. Crea un boxplot que muestre la distribución del número de opalinus bajo diferentes condiciones de luz (Sun vs. Shade) utilizando ggplot2. Sugerencia: Usa ggplot(), aes() y geom_boxplot()
+
+
