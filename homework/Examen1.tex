@@ -1,0 +1,350 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={Midterm Exam},
+  pdfauthor={José Manuel Murcia},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Midterm Exam}
+\author{José Manuel Murcia}
+\date{2026-10-22}
+
+\begin{document}
+\maketitle
+
+\section{Hola, soy Manuel Murcia}\label{hola-soy-manuel-murcia}
+
+\subsubsection{Estudiante de la UPR
+Mayagüez}\label{estudiante-de-la-upr-mayaguxfcez}
+
+\paragraph{Maestría en Biología}\label{maestruxeda-en-biologuxeda}
+
+\subsubsection{Examen 1: Jueves 22 de Octubre, 3:00 pm,
+finalización:}\label{examen-1-jueves-22-de-octubre-300-pm-finalizaciuxf3n}
+
+Aquí se muestran mis ejercicios en el aprendizaje de R. Examen1:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("tidyverse")}
+\CommentTok{\# installed.packages("dplyr")}
+\CommentTok{\# install.packages("aod")}
+
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+-- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+v dplyr     1.2.1     v readr     2.2.0
+v forcats   1.0.1     v stringr   1.6.0
+v ggplot2   4.0.3     v tibble    3.3.1
+v lubridate 1.9.5     v tidyr     1.3.2
+v purrr     1.2.2     
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(aod)}
+
+\FunctionTok{data}\NormalTok{(}\StringTok{"msleep"}\NormalTok{)}
+\FunctionTok{data}\NormalTok{(}\StringTok{"storms"}\NormalTok{)}
+\FunctionTok{data}\NormalTok{(}\StringTok{"lizards"}\NormalTok{)}
+
+\FunctionTok{head}\NormalTok{(msleep, }\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 6 x 11
+  name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+  <chr>   <chr> <chr> <chr> <chr>              <dbl>     <dbl>       <dbl> <dbl>
+1 Cheetah Acin~ carni Carn~ lc                  12.1      NA        NA      11.9
+2 Owl mo~ Aotus omni  Prim~ <NA>                17         1.8      NA       7  
+3 Mounta~ Aplo~ herbi Rode~ nt                  14.4       2.4      NA       9.6
+4 Greate~ Blar~ omni  Sori~ lc                  14.9       2.3       0.133   9.1
+5 Cow     Bos   herbi Arti~ domesticated         4         0.7       0.667  20  
+6 Three-~ Brad~ herbi Pilo~ <NA>                14.4       2.2       0.767   9.6
+# i 2 more variables: brainwt <dbl>, bodywt <dbl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(storms, }\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 6 x 13
+  name   year month   day  hour   lat  long status       category  wind pressure
+  <chr> <dbl> <dbl> <int> <dbl> <dbl> <dbl> <fct>           <dbl> <int>    <int>
+1 Amy    1975     6    27     0  27.5 -79   tropical de~       NA    25     1013
+2 Amy    1975     6    27     6  28.5 -79   tropical de~       NA    25     1013
+3 Amy    1975     6    27    12  29.5 -79   tropical de~       NA    25     1013
+4 Amy    1975     6    27    18  30.5 -79   tropical de~       NA    25     1013
+5 Amy    1975     6    28     0  31.5 -78.8 tropical de~       NA    25     1012
+6 Amy    1975     6    28     6  32.4 -78.7 tropical de~       NA    25     1012
+# i 2 more variables: tropicalstorm_force_diameter <int>,
+#   hurricane_force_diameter <int>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(lizards, }\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  Site Diameter Height    Time grahami opalinus
+1  Sun   D <= 2  H < 5   Early      20        2
+2  Sun   D <= 2  H < 5 Mid-day       8        1
+3  Sun   D <= 2  H < 5    Late       4        4
+4  Sun   D <= 2 H >= 5   Early      13        0
+5  Sun   D <= 2 H >= 5 Mid-day       8        0
+6  Sun   D <= 2 H >= 5    Late      12        0
+\end{verbatim}
+
+\paragraph{Q1. Usa filter() para seleccionar del dataset msleep solo los
+animales que están despiertos al menos 12 horas al
+día.}\label{q1.-usa-filter-para-seleccionar-del-dataset-msleep-solo-los-animales-que-estuxe1n-despiertos-al-menos-12-horas-al-duxeda.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{msleep }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(awake }\SpecialCharTok{\textgreater{}=} \DecValTok{12}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 52 x 11
+##    name   genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+##    <chr>  <chr> <chr> <chr> <chr>              <dbl>     <dbl>       <dbl> <dbl>
+##  1 Cow    Bos   herbi Arti~ domesticated         4         0.7       0.667  20  
+##  2 North~ Call~ carni Carn~ vu                   8.7       1.4       0.383  15.3
+##  3 Vespe~ Calo~ <NA>  Rode~ <NA>                 7        NA        NA      17  
+##  4 Dog    Canis carni Carn~ domesticated        10.1       2.9       0.333  13.9
+##  5 Roe d~ Capr~ herbi Arti~ lc                   3        NA        NA      21  
+##  6 Goat   Capri herbi Arti~ lc                   5.3       0.6      NA      18.7
+##  7 Guine~ Cavis herbi Rode~ domesticated         9.4       0.8       0.217  14.6
+##  8 Grivet Cerc~ omni  Prim~ lc                  10         0.7      NA      14  
+##  9 Star-~ Cond~ omni  Sori~ lc                  10.3       2.2      NA      13.7
+## 10 Afric~ Cric~ omni  Rode~ <NA>                 8.3       2        NA      15.7
+## # i 42 more rows
+## # i 2 more variables: brainwt <dbl>, bodywt <dbl>
+\end{verbatim}
+
+\paragraph{Q2. Usa mutate() para crear una nueva columna llamada
+percent\_day\_awake que muestre el porcentaje del día que cada especie
+permanece despierta. Usa select() con everything() al final para
+comprobar que tus cálculos son
+correctos.}\label{q2.-usa-mutate-para-crear-una-nueva-columna-llamada-percent_day_awake-que-muestre-el-porcentaje-del-duxeda-que-cada-especie-permanece-despierta.-usa-select-con-everything-al-final-para-comprobar-que-tus-cuxe1lculos-son-correctos.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  msleep }\OtherTok{\textless{}{-}}\NormalTok{  msleep }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{percent\_day\_awake =}\NormalTok{ (awake }\SpecialCharTok{/} \DecValTok{24}\NormalTok{) }\SpecialCharTok{*} \DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(percent\_day\_awake, awake, }\FunctionTok{everything}\NormalTok{())}
+\NormalTok{msleep}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 83 x 12
+##    percent_day_awake awake name       genus vore  order conservation sleep_total
+##                <dbl> <dbl> <chr>      <chr> <chr> <chr> <chr>              <dbl>
+##  1              49.6  11.9 Cheetah    Acin~ carni Carn~ lc                  12.1
+##  2              29.2   7   Owl monkey Aotus omni  Prim~ <NA>                17  
+##  3              40     9.6 Mountain ~ Aplo~ herbi Rode~ nt                  14.4
+##  4              37.9   9.1 Greater s~ Blar~ omni  Sori~ lc                  14.9
+##  5              83.3  20   Cow        Bos   herbi Arti~ domesticated         4  
+##  6              40     9.6 Three-toe~ Brad~ herbi Pilo~ <NA>                14.4
+##  7              63.8  15.3 Northern ~ Call~ carni Carn~ vu                   8.7
+##  8              70.8  17   Vesper mo~ Calo~ <NA>  Rode~ <NA>                 7  
+##  9              57.9  13.9 Dog        Canis carni Carn~ domesticated        10.1
+## 10              87.5  21   Roe deer   Capr~ herbi Arti~ lc                   3  
+## # i 73 more rows
+## # i 4 more variables: sleep_rem <dbl>, sleep_cycle <dbl>, brainwt <dbl>,
+## #   bodywt <dbl>
+\end{verbatim}
+
+\paragraph{Q3. Agrupa los datos por año y calcula el número de tormentas
+que ocurrieron cada año. Sugerencia: group\_by(col) agrupa las filas por
+tiempo, y summarise(num\_storms = n()) cuenta cuántas filas (tormentas)
+hay por
+año.}\label{q3.-agrupa-los-datos-por-auxf1o-y-calcula-el-nuxfamero-de-tormentas-que-ocurrieron-cada-auxf1o.-sugerencia-group_bycol-agrupa-las-filas-por-tiempo-y-summarisenum_storms-n-cuenta-cuuxe1ntas-filas-tormentas-hay-por-auxf1o.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{storms }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(year) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{num\_storms =} \FunctionTok{n}\NormalTok{()}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 50 x 2
+##     year num_storms
+##    <dbl>      <int>
+##  1  1975        238
+##  2  1976        126
+##  3  1977         92
+##  4  1978        152
+##  5  1979        324
+##  6  1980        335
+##  7  1981        311
+##  8  1982        111
+##  9  1983         88
+## 10  1984        342
+## # i 40 more rows
+\end{verbatim}
+
+\paragraph{Q4 Filtra el dataset para quedarte solo con tormentas que
+tengan velocidad de viento mayor a 50 nudos, y luego ordénalas de mayor
+a menor velocidad de viento. Sugerencia: Usa filter(col \textgreater{}
+50) para seleccionar las tormentas fuertes, y arrange(desc(col)) para
+ordenar los resultados de mayor a
+menor.}\label{q4-filtra-el-dataset-para-quedarte-solo-con-tormentas-que-tengan-velocidad-de-viento-mayor-a-50-nudos-y-luego-orduxe9nalas-de-mayor-a-menor-velocidad-de-viento.-sugerencia-usa-filtercol-50-para-seleccionar-las-tormentas-fuertes-y-arrangedesccol-para-ordenar-los-resultados-de-mayor-a-menor.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{storms }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(wind }\SpecialCharTok{\textgreater{}} \DecValTok{50}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(wind))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 7,406 x 13
+##    name     year month   day  hour   lat  long status    category  wind pressure
+##    <chr>   <dbl> <dbl> <int> <dbl> <dbl> <dbl> <fct>        <dbl> <int>    <int>
+##  1 Allen    1980     8     7    18  21.8 -86.4 hurricane        5   165      899
+##  2 Gilbert  1988     9    14     0  19.7 -83.8 hurricane        5   160      888
+##  3 Wilma    2005    10    19    12  17.3 -82.8 hurricane        5   160      882
+##  4 Dorian   2019     9     1    16  26.5 -77   hurricane        5   160      910
+##  5 Dorian   2019     9     1    18  26.5 -77.1 hurricane        5   160      910
+##  6 Allen    1980     8     5    12  15.9 -70.5 hurricane        5   155      932
+##  7 Allen    1980     8     7    12  21   -84.8 hurricane        5   155      910
+##  8 Allen    1980     8     8     0  22.2 -87.9 hurricane        5   155      920
+##  9 Allen    1980     8     9     6  25   -94.2 hurricane        5   155      909
+## 10 Gilbert  1988     9    14     6  19.9 -85.3 hurricane        5   155      889
+## # i 7,396 more rows
+## # i 2 more variables: tropicalstorm_force_diameter <int>,
+## #   hurricane_force_diameter <int>
+\end{verbatim}
+
+\paragraph{Q5. Crea un boxplot que muestre la distribución del número de
+opalinus bajo diferentes condiciones de luz (Sun vs.~Shade) utilizando
+ggplot2. Sugerencia: Usa ggplot(), aes() y
+geom\_boxplot()}\label{q5.-crea-un-boxplot-que-muestre-la-distribuciuxf3n-del-nuxfamero-de-opalinus-bajo-diferentes-condiciones-de-luz-sun-vs.-shade-utilizando-ggplot2.-sugerencia-usa-ggplot-aes-y-geom_boxplot}
+
+\end{document}
