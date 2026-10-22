@@ -25,7 +25,7 @@ output:
 
 [Actividad 3](homework/asignacion3.html)
 
-[Actividad 3](homework/Examen1.html)
+[Examen 1](homework/Examen1.html)
 
 # Otros ejercicios en clase
 
