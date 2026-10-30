@@ -27,6 +27,8 @@ output:
 
 [Examen 1](homework/Examen1.html)
 
+[Actividad 4](homework/asignacion4.html)
+
 # Otros ejercicios en clase
 
 ## Creando una tabla de datos
